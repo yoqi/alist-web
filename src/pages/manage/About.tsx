@@ -3,7 +3,7 @@ import { Markdown, MaybeLoading } from "~/components"
 
 const fetchReadme = async () =>
   await (
-    await fetch("https://jsd.nn.ci/gh/alist-org/alist@main/README.md")
+    await fetch("https://baidu.com")
   ).text()
 
 const About = () => {

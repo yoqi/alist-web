@@ -10,13 +10,13 @@ export const setBasePath = (path: string) => {
     base_path = base_path.slice(0, -1)
   }
 }
-if (window.ALIST.base_path) {
-  setBasePath(window.ALIST.base_path)
+if (window.TwCloud.base_path) {
+  setBasePath(window.TwCloud.base_path)
 }
 
 export let api = import.meta.env.VITE_API_URL as string
-if (window.ALIST.api) {
-  api = window.ALIST.api
+if (window.TwCloud.api) {
+  api = window.TwCloud.api
 }
 if (api === "/") {
   api = location.origin + base_path
@@ -26,5 +26,5 @@ if (api.endsWith("/")) {
 }
 
 export const monaco_cdn =
-  window.ALIST.monaco_cdn ||
+  window.TwCloud.monaco_cdn ||
   "https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/monaco-editor/0.33.0-dev.20220228/min/vs"
