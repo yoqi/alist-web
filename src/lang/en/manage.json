@@ -21,7 +21,7 @@
     "indexes": "Indexes",
     "github": "Github"
   },
-  "title": "AList Manage",
+  "title": "TwCloud Manage",
   "not_admin": "You are not admin user, please login with admin account.",
   "logout_success": "Logout successfully",
   "send": "Send",

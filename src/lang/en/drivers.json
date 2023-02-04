@@ -62,13 +62,13 @@
     "username": "Username",
     "validate_code": "Validate code"
   },
-  "AList V2": {
+  "TwCloud V2": {
     "access_token": "Access token",
     "password": "Password",
     "root_folder_path": "Root folder path",
     "url": "Url"
   },
-  "AList V3": {
+  "TwCloud V3": {
     "access_token": "Access token",
     "password": "Password",
     "root_folder_path": "Root folder path",
@@ -434,8 +434,8 @@
     "139Yun": "139Yun",
     "189Cloud": "189Cloud",
     "189CloudPC": "189CloudPC",
-    "AList V2": "AList V2",
-    "AList V3": "AList V3",
+    "TwCloud V2": "TwCloud V2",
+    "TwCloud V3": "TwCloud V3",
     "Aliyundrive": "Aliyundrive",
     "AliyundriveShare": "AliyundriveShare",
     "BaiduNetdisk": "BaiduNetdisk",
