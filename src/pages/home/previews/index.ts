@@ -16,6 +16,12 @@ export type PreviewComponent = Pick<Preview, "name" | "component">
 
 const previews: Preview[] = [
   {
+    name: "Aliyun Video Previewer",
+    type: ObjType.VIDEO,
+    provider: /^Aliyundrive(Open)?$/,
+    component: lazy(() => import("./aliyun_video")),
+  },
+  {
     name: "Markdown",
     type: ObjType.TEXT,
     component: lazy(() => import("./markdown")),
@@ -58,7 +64,7 @@ const previews: Preview[] = [
   {
     name: "Aliyun Office Previewer",
     exts: ["doc", "docx", "ppt", "pptx", "xls", "xlsx", "pdf"],
-    provider: /Aliyundrive/,
+    provider: /^Aliyundrive(Share)?$/,
     component: lazy(() => import("./aliyun_office")),
   },
 ]

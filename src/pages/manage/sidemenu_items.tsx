@@ -20,7 +20,7 @@ import { OcWorkflow2 } from "solid-icons/oc"
 import { IoCopy, IoHome } from "solid-icons/io"
 import { Component, lazy } from "solid-js"
 import { Group, UserRole } from "~/types"
-import { FaSolidDatabase } from "solid-icons/fa"
+import { FaBrandsQuinscape, FaSolidBook, FaSolidDatabase } from "solid-icons/fa"
 
 export type SideMenuItem = SideMenuItemProps & {
   component?: Component
@@ -92,6 +92,12 @@ export const side_menu_items: SideMenuItem[] = [
         component: lazy(() => import("./tasks/Aria2")),
       },
       {
+        title: "manage.sidemenu.qbit",
+        icon: FaBrandsQuinscape,
+        to: "/@manage/tasks/qbit",
+        component: lazy(() => import("./tasks/Qbit")),
+      },
+      {
         title: "manage.sidemenu.upload",
         icon: BsCloudUploadFill,
         to: "/@manage/tasks/upload",
@@ -142,6 +148,13 @@ export const side_menu_items: SideMenuItem[] = [
   //   role: UserRole.GUEST,
   //   component: lazy(() => import("./About")),
   // },
+  {
+    title: "manage.sidemenu.docs",
+    icon: FaSolidBook,
+    to: "https://alist.nn.ci",
+    role: UserRole.GUEST,
+    external: true,
+  },
   {
     title: "manage.sidemenu.home",
     icon: IoHome,
