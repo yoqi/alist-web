@@ -148,13 +148,13 @@ export const side_menu_items: SideMenuItem[] = [
   //   role: UserRole.GUEST,
   //   component: lazy(() => import("./About")),
   // },
-  {
-    title: "manage.sidemenu.docs",
-    icon: FaSolidBook,
-    to: "https://alist.nn.ci",
-    role: UserRole.GUEST,
-    external: true,
-  },
+  // {
+  //   title: "manage.sidemenu.docs",
+  //   icon: FaSolidBook,
+  //   to: "https://alist.nn.ci",
+  //   role: UserRole.GUEST,
+  //   external: true,
+  // },
   {
     title: "manage.sidemenu.home",
     icon: IoHome,
