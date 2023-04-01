@@ -27,6 +27,11 @@ const previews: Preview[] = [
     component: lazy(() => import("./markdown")),
   },
   {
+    name: "Markdown with word wrap",
+    type: ObjType.TEXT,
+    component: lazy(() => import("./markdown_with_word_wrap")),
+  },
+  {
     name: "Text Editor",
     type: ObjType.TEXT,
     component: lazy(() => import("./text-editor")),
@@ -53,7 +58,7 @@ const previews: Preview[] = [
   },
   {
     name: "Ipa",
-    exts: ["ipa"],
+    exts: ["ipa", "tipa"],
     component: lazy(() => import("./ipa")),
   },
   {
