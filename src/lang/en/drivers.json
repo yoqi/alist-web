@@ -26,9 +26,8 @@
     "username": "Username"
   },
   "139Yun": {
-    "account": "Account",
+    "authorization": "Authorization",
     "cloud_id": "Cloud id",
-    "cookie": "Cookie",
     "root_folder_id": "Root folder id",
     "type": "Type",
     "types": {
@@ -157,6 +156,7 @@
   "BaiduNetdisk": {
     "client_id": "Client id",
     "client_secret": "Client secret",
+    "custom_crack_ua": "Custom crack ua",
     "download_api": "Download api",
     "download_apis": {
       "crack": "Crack",
@@ -200,6 +200,15 @@
     "password": "Password",
     "root_folder_path": "Root folder path",
     "username": "Username"
+  },
+  "Dropbox": {
+    "client_id": "Client id",
+    "client_id-tips": "Keep it empty if you don't have one",
+    "client_secret": "Client secret",
+    "client_secret-tips": "Keep it empty if you don't have one",
+    "oauth_token_url": "Oauth token url",
+    "refresh_token": "Refresh token",
+    "root_folder_path": "Root folder path"
   },
   "FTP": {
     "address": "Address",
@@ -338,6 +347,8 @@
   },
   "S3": {
     "access_key_id": "Access key id",
+    "add_filename_to_disposition": "Add filename to disposition",
+    "add_filename_to_disposition-tips": "Add filename to Content-Disposition header.",
     "bucket": "Bucket",
     "custom_host": "Custom host",
     "endpoint": "Endpoint",
@@ -464,6 +475,22 @@
     "apikey": "Apikey",
     "root_folder_id": "Root folder id"
   },
+  "UC": {
+    "cookie": "Cookie",
+    "order_by": "Order by",
+    "order_bys": {
+      "file_name": "File name",
+      "file_type": "File type",
+      "none": "None",
+      "updated_at": "Updated at"
+    },
+    "order_direction": "Order direction",
+    "order_directions": {
+      "asc": "Asc",
+      "desc": "Desc"
+    },
+    "root_folder_id": "Root folder id"
+  },
   "USS": {
     "bucket": "Bucket",
     "endpoint": "Endpoint",
@@ -494,6 +521,22 @@
     "vendors": {
       "other": "Other",
       "sharepoint": "Sharepoint"
+    }
+  },
+  "WoPan": {
+    "access_token": "Access token",
+    "family_id": "Family id",
+    "family_id-tips": "Keep it empty if you want to use your personal drive",
+    "refresh_token": "Refresh token",
+    "root_folder_id": "Root folder id",
+    "sort_rule": "Sort rule",
+    "sort_rules": {
+      "name_asc": "Name asc",
+      "name_desc": "Name desc",
+      "size_asc": "Size asc",
+      "size_desc": "Size desc",
+      "time_asc": "Time asc",
+      "time_desc": "Time desc"
     }
   },
   "YandexDisk": {
@@ -535,6 +578,7 @@
     "BaiduPhoto": {},
     "BaiduShare": {},
     "Cloudreve": {},
+    "Dropbox": {},
     "FTP": {},
     "GoogleDrive": {},
     "GooglePhoto": {},
@@ -557,10 +601,12 @@
     "Thunder": {},
     "ThunderExpert": {},
     "Trainbit": {},
+    "UC": {},
     "USS": {},
     "UrlTree": {},
     "Virtual": {},
     "WebDav": {},
+    "WoPan": {},
     "YandexDisk": {}
   },
   "drivers": {
@@ -579,6 +625,7 @@
     "BaiduPhoto": "BaiduPhoto",
     "BaiduShare": "BaiduShare",
     "Cloudreve": "Cloudreve",
+    "Dropbox": "Dropbox",
     "FTP": "FTP",
     "GoogleDrive": "GoogleDrive",
     "GooglePhoto": "GooglePhoto",
@@ -601,10 +648,12 @@
     "Thunder": "Thunder",
     "ThunderExpert": "ThunderExpert",
     "Trainbit": "Trainbit",
+    "UC": "UC",
     "USS": "USS",
     "UrlTree": "UrlTree",
     "Virtual": "Virtual",
     "WebDav": "WebDav",
+    "WoPan": "WoPan",
     "YandexDisk": "YandexDisk"
   }
 }
