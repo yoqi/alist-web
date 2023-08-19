@@ -27,9 +27,7 @@ const Preview = () => {
       name: obj.name,
       artist: "Unknown",
       url: rawLink(obj, true),
-      cover:
-        getSetting("audio_cover") ||
-        "https://git.yoqi.me/img/favicon.png",
+      cover: getSetting("audio_cover") || "https://git.yoqi.me/img/favicon.png",
       lrc: lrc,
     }
   }

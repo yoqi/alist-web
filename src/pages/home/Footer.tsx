@@ -9,8 +9,7 @@ export const Footer = () => {
   const t = useT()
   return (
     <VStack class="footer" w="$full" py="$4">
-      <HStack spacing="$1">
-      </HStack>
+      <HStack spacing="$1"></HStack>
     </VStack>
   )
 }

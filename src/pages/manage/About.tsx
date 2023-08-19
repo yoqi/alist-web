@@ -2,10 +2,7 @@ import { createResource } from "solid-js"
 import { Markdown, MaybeLoading } from "~/components"
 import { useT, useManageTitle } from "~/hooks"
 
-const fetchReadme = async () =>
-  await (
-    await fetch("https://baidu.com")
-  ).text()
+const fetchReadme = async () => await (await fetch("https://baidu.com")).text()
 
 const About = () => {
   const t = useT()
