@@ -7,11 +7,6 @@ export const setSettings = (items: Record<string, string>) => {
     settings[key] = items[key]
   })
   const version = settings["version"] || "Unknown"
-  console.log(
-    `%c AList %c ${version} %c https://github.com/Xhofe/alist`,
-    "color: #fff; background: #5f5f5f",
-    "color: #fff; background: #70c6be",
-    "",
   )
 }
 
@@ -28,8 +23,8 @@ export const getSettingNumber = (key: string, defaultV?: number) => {
   return defaultV ?? 0
 }
 export const getMainColor = (): string => {
-  if (window.ALIST.main_color) {
-    return window.ALIST.main_color
+  if (window.TwCloud.main_color) {
+    return window.TwCloud.main_color
   }
   return getSetting("main_color") || "#1890ff"
 }

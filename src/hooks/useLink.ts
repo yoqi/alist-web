@@ -59,10 +59,15 @@ export const useLink = () => {
 export const useSelectedLink = () => {
   const { previewPage, rawLink: rawUrl } = useLink()
   const rawLinks = (encodeAll?: boolean) => {
-    return selectedObjs()
+    var resLink=selectedObjs()
       .filter((obj) => !obj.is_dir)
       .map((obj) => rawUrl(obj, encodeAll))
+    // post短链生成
+    // "http://u.yoqi.me/createOne"
+    
+    return resLink
   }
+
   return {
     rawLinks: rawLinks,
     previewPagesText: () => {
