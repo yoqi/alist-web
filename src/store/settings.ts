@@ -7,7 +7,6 @@ export const setSettings = (items: Record<string, string>) => {
     settings[key] = items[key]
   })
   const version = settings["version"] || "Unknown"
-  )
 }
 
 export const getSetting = (key: string) => settings[key] ?? ""
