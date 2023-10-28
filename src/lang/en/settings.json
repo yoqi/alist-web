@@ -23,6 +23,7 @@
   },
   "home_icon": "Home icon",
   "iframe_previews": "Iframe previews",
+  "ignore_direct_link_params": "Ignore direct link params",
   "ignore_paths": "Ignore paths",
   "ignore_paths-tips": "one path per line",
   "image_types": "Image types",
@@ -65,6 +66,7 @@
   "sso_auto_register": "Sso auto register",
   "sso_client_id": "Sso client id",
   "sso_client_secret": "Sso client secret",
+  "sso_compatibility_mode": "Sso compatibility mode",
   "sso_default_dir": "Sso default dir",
   "sso_default_permission": "Sso default permission",
   "sso_endpoint_name": "Sso endpoint name",
@@ -79,6 +81,7 @@
     "Microsoft": "Microsoft",
     "OIDC": "OIDC"
   },
+  "sso_oidc_username_key": "Sso oidc username key",
   "sso_organization_name": "Sso organization name",
   "text_types": "Text types",
   "token": "Token",
