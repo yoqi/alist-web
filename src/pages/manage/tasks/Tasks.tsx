@@ -41,6 +41,9 @@ export const Tasks = (props: TasksProps) => {
   const [clearSucceededLoading, clearSucceeded] = useFetch(
     (): PEmptyResp => r.post(`/admin/task/${props.type}/clear_succeeded`),
   )
+  const [retryFailedLoading, retryFailed] = useFetch(
+    (): PEmptyResp => r.post(`/admin/task/${props.type}/retry_failed`),
+  )
   const [page, setPage] = createSignal(1)
   const pageSize = 20
   const curTasks = createMemo(() => {
@@ -52,11 +55,21 @@ export const Tasks = (props: TasksProps) => {
     <VStack w="$full" alignItems="start" spacing="$2">
       <Heading size="lg">{t(`tasks.${props.done}`)}</Heading>
       <Show when={props.done === "done"}>
-        <HStack spacing="$2">
+        <HStack gap="$2" flexWrap="wrap">
           <Button colorScheme="accent" loading={loading()} onClick={refresh}>
             {t(`global.refresh`)}
           </Button>
           <Button
+            loading={retryFailedLoading()}
+            onClick={async () => {
+              const resp = await retryFailed()
+              handleResp(resp, () => refresh())
+            }}
+          >
+            {t(`tasks.retry_failed`)}
+          </Button>
+          <Button
+            colorScheme="danger"
             loading={clearDoneLoading()}
             onClick={async () => {
               const resp = await clearDone()
