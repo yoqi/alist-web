@@ -57,11 +57,15 @@
   "qbittorrent_seedtime": "Qbittorrent seedtime",
   "qbittorrent_url": "Qbittorrent url",
   "robots_txt": "Robots txt",
+  "s3_access_key_id": "S3 access key id",
+  "s3_buckets": "S3 buckets",
+  "s3_secret_access_key": "S3 secret access key",
   "search_index": "Search index",
   "search_indexs": {
     "bleve": "Bleve",
     "database": "Database",
     "database_non_full_text": "Database non full text",
+    "meilisearch": "Meilisearch",
     "none": "None"
   },
   "settings_layout": "Settings layout",
