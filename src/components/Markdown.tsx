@@ -12,12 +12,12 @@ import { Anchor, Box, List, ListItem } from "@hope-ui/solid"
 import { useParseText, useRouter } from "~/hooks"
 import { EncodingSelect } from "."
 import once from "just-once"
-import { pathDir, pathJoin, api } from "~/utils"
+import { pathDir, pathJoin, api, pathResolve } from "~/utils"
 import { createStorageSignal } from "@solid-primitives/storage"
 import { isMobile } from "~/utils/compatibility.js"
 import { useScrollListener } from "~/pages/home/toolbar/BackTop.jsx"
 import { Motion } from "@motionone/solid"
-import { getMainColor } from "~/store"
+import { getMainColor, me } from "~/store"
 
 type TocItem = { indent: number; text: string; tagName: string; key: string }
 
@@ -158,8 +158,15 @@ const insertKatexCSS = once(() => {
   const link = document.createElement("link")
   link.rel = "stylesheet"
   link.href =
-    "https://registry.npmmirror.com/katex/0.16.8/files/dist/katex.min.css"
+    "https://registry.npmmirror.com/katex/0.16.11/files/dist/katex.min.css"
   document.head.appendChild(link)
+})
+
+const insertMermaidJS = once(() => {
+  const script = document.createElement("script")
+  script.src =
+    "https://registry.npmmirror.com/mermaid/11/files/dist/mermaid.min.js"
+  document.body.appendChild(script)
 })
 
 export function Markdown(props: {
@@ -184,6 +191,10 @@ export function Markdown(props: {
     content = content.replace(/!\[.*?\]\((.*?)\)/g, (match) => {
       const name = match.match(/!\[(.*?)\]\(.*?\)/)![1]
       let url = match.match(/!\[.*?\]\((.*?)\)/)![1]
+      // 检查是否为 base64 编码的图片
+      if (url.startsWith("data:image/")) {
+        return match // 如果是 base64 编码的图片，直接返回原标签
+      }
       if (
         url.startsWith("http://") ||
         url.startsWith("https://") ||
@@ -194,10 +205,9 @@ export function Markdown(props: {
       if (url.startsWith("/")) {
         url = `${api}/d${url}`
       } else {
-        url = url.replace("./", "")
         url = `${api}/d${pathJoin(
-          props.readme ? pathname() : pathDir(pathname()),
-          url,
+          me().base_path,
+          pathResolve(props.readme ? pathname() : pathDir(pathname()), url),
         )}`
       }
       const ans = `![${name}](${url})`
@@ -210,9 +220,14 @@ export function Markdown(props: {
     on(md, () => {
       setShow(false)
       insertKatexCSS()
+      insertMermaidJS()
       setTimeout(() => {
         setShow(true)
         hljs.highlightAll()
+        window.mermaid &&
+          window.mermaid.run({
+            querySelector: ".language-mermaid",
+          })
         window.onMDRender && window.onMDRender()
       })
     }),
@@ -234,7 +249,11 @@ export function Markdown(props: {
         />
       </Show>
       <Show when={!isString}>
-        <EncodingSelect encoding={encoding()} setEncoding={setEncoding} />
+        <EncodingSelect
+          encoding={encoding()}
+          setEncoding={setEncoding}
+          referenceText={props.children}
+        />
       </Show>
       <MarkdownToc disabled={!props.toc} markdownRef={markdownRef()!} />
     </Box>

@@ -286,6 +286,7 @@ const Preview = () => {
         minWidth: 200,
         maxWidth: 400,
         theme: "dark",
+        heatmap: true,
       }),
     )
   }
@@ -309,6 +310,7 @@ const Preview = () => {
     })
   })
   onCleanup(() => {
+    if (player && player.video) player.video.src = ""
     player?.destroy()
   })
   const [autoNext, setAutoNext] = createSignal()

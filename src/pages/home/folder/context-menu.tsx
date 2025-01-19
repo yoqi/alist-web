@@ -6,9 +6,16 @@ import { operations } from "../toolbar/operations"
 import { For, Show } from "solid-js"
 import { bus, convertURL, notify } from "~/utils"
 import { ObjType, UserMethods, UserPermissions } from "~/types"
-import { getSettingBool, haveSelected, me, oneChecked } from "~/store"
+import {
+  getSettingBool,
+  haveSelected,
+  me,
+  oneChecked,
+  selectedObjs,
+} from "~/store"
 import { players } from "../previews/video_box"
 import { BsPlayCircleFill } from "solid-icons/bs"
+import { isArchive } from "~/store/archive"
 
 const ItemContent = (props: { name: string }) => {
   const t = useT()
@@ -29,7 +36,8 @@ export const ContextMenu = () => {
   const t = useT()
   const { colorMode } = useColorMode()
   const { copySelectedRawLink, copySelectedPreviewPage } = useCopyLink()
-  const { batchDownloadSelected, sendToAria2 } = useDownload()
+  const { batchDownloadSelected, sendToAria2, playlistDownloadSelected } =
+    useDownload()
   const canPackageDownload = () => {
     return UserMethods.is_admin(me()) || getSettingBool("package_download")
   }
@@ -39,6 +47,7 @@ export const ContextMenu = () => {
       id={1}
       animation="scale"
       theme={colorMode() !== "dark" ? "light" : "dark"}
+      style="z-index: var(--hope-zIndices-popover)"
     >
       <For each={["rename", "move", "copy", "delete"]}>
         {(name) => (
@@ -55,6 +64,25 @@ export const ContextMenu = () => {
           </Item>
         )}
       </For>
+      <Show when={oneChecked()}>
+        <Item
+          hidden={() => {
+            const index = UserPermissions.findIndex(
+              (item) => item === "decompress",
+            )
+            return (
+              !UserMethods.can(me(), index) ||
+              selectedObjs()[0].is_dir ||
+              !isArchive(selectedObjs()[0].name)
+            )
+          }}
+          onClick={() => {
+            bus.emit("tool", "decompress")
+          }}
+        >
+          <ItemContent name="decompress" />
+        </Item>
+      </Show>
       <Show when={oneChecked()}>
         <Item
           onClick={({ props }) => {
@@ -146,6 +174,9 @@ export const ContextMenu = () => {
           >
             <Item onClick={() => bus.emit("tool", "package_download")}>
               {t("home.toolbar.package_download")}
+            </Item>
+            <Item onClick={playlistDownloadSelected}>
+              {t("home.toolbar.playlist_download")}
             </Item>
           </Show>
           <Item onClick={sendToAria2}>{t("home.toolbar.send_aria2")}</Item>
