@@ -69,11 +69,6 @@ function SidebarPannel() {
 
   return (
     <Box
-      as={Motion.div}
-      initial={{ x: -999 }}
-      animate={{ x: offsetX() }}
-      zIndex="$overlay"
-      pos="fixed"
       left={3} // width of outline shadow
       top={3}
       h="calc(100vh - 6px)"

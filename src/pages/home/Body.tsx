@@ -9,22 +9,30 @@ export const Body = () => {
   return (
     <Container>
       <VStack
-        class="body"
-        mt="$1"
-        py="$2"
-        px="2%"
-        minH="80vh"
+      class="body"
+      mt="$1"
+      py="$2"
+      px="2%"
+      minH="80vh"
+      w="$full"
+      gap="$4"
+      direction="row"
+      alignItems="flex-start" 
+      >
+        <Sidebar w="250px" />
+        <VStack
+        class="content"
         w="$full"
         gap="$4"
-      >
+        >
         <Readme files={["header.md", "top.md"]} fromMeta="header" />
         <Nav />
         <Obj />
         <Readme
-          files={["readme.md", "footer.md", "bottom.md"]}
-          fromMeta="readme"
+        files={["readme.md", "footer.md", "bottom.md"]}
+        fromMeta="readme"
         />
-        <Sidebar />
+        </VStack>
       </VStack>
     </Container>
   )
