@@ -90,8 +90,9 @@ export const fsMove = (
 export const fsRecursiveMove = (
   src_dir: string,
   dst_dir: string,
+  conflict_policy: boolean,
 ): PEmptyResp => {
-  return r.post("/fs/recursive_move", { src_dir, dst_dir })
+  return r.post("/fs/recursive_move", { src_dir, dst_dir, conflict_policy })
 }
 
 export const fsCopy = (
