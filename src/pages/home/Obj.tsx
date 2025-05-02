@@ -10,7 +10,7 @@ import {
   Switch,
 } from "solid-js"
 import { Error, FullLoading, LinkWithBase } from "~/components"
-import { resetGlobalPage, useObjTitle, usePath, useRouter, useT } from "~/hooks"
+import { useObjTitle, usePath, useRouter, useT } from "~/hooks"
 import {
   getPagination,
   objStore,
@@ -29,7 +29,6 @@ const Password = lazy(() => import("./Password"))
 const [objBoxRef, setObjBoxRef] = createSignal<HTMLDivElement>()
 export { objBoxRef }
 
-let first = true
 export const Obj = () => {
   const t = useT()
   const cardBg = useColorModeValue("white", "$neutral3")
@@ -38,22 +37,20 @@ export const Obj = () => {
   const pagination = getPagination()
   const page = createMemo(() => {
     return pagination.type === "pagination"
-      ? parseInt(searchParams["page"]) || 1
+      ? parseInt(searchParams["page"], 10) || 1
       : undefined
   })
-  let lastPathname = pathname()
-  let lastPage = page()
+  let lastPathname: string
+  let lastPage: number | undefined
   createEffect(
     on([pathname, page], async ([pathname, page]) => {
-      useObjTitle()
-      if (!first) {
+      if (lastPathname) {
         recordHistory(lastPathname, lastPage)
-        resetGlobalPage()
       }
-      first = false
-      await handlePathChange(pathname, page)
       lastPathname = pathname
       lastPage = page
+      useObjTitle()
+      await handlePathChange(pathname, page)
     }),
   )
   return (

@@ -56,8 +56,12 @@ export const getOfflineDownloadTransferNameAnalyzer = (): TaskNameAnalyzer => {
     regex: /^transfer \[(.*)]\((.*\/([^\/]+))\) to \[(.+)]\((.+)\)$/,
     title: (matches) => matches[3],
     attrs: {
-      [t(`tasks.attr.offline_download.transfer_src`)]: (matches) =>
-        getPath(matches[1], matches[2], false),
+      [t(`tasks.attr.offline_download.transfer_src`)]: (matches) => {
+        return matches[1] === "" ? undefined : getPath(matches[1], matches[2])
+      },
+      [t(`tasks.attr.offline_download.transfer_src_local`)]: (matches) => {
+        return matches[1] === "" ? matches[2] : undefined
+      },
       [t(`tasks.attr.offline_download.transfer_dst`)]: (matches) =>
         getPath(matches[4], matches[5]),
     },
