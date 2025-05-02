@@ -16,6 +16,7 @@ import { Container } from "../Container"
 import { bus } from "~/utils"
 import { Layout } from "./layout"
 import { isMac } from "~/utils/compatibility"
+import { Nav } from "../Nav"
 
 export const Header = () => {
   const logos = getSetting("logo").split("\n")
@@ -40,15 +41,18 @@ export const Header = () => {
     >
       <Container>
         <HStack px="$2" py="$1" w="$full" justifyContent="space-between">
-          <HStack class="header-left" h="40px" spacing="$4">
+          <HStack class="header-left" spacing="$4" flex="1" overflow="hidden">
             <Image
               src={logo()!}
-              h="$full"
+              h="40px"
               w="auto"
               fallback={<CenterLoading />}
             />
+            <Show when={objStore.state === State.Folder}>
+              <Nav />
+            </Show>
           </HStack>
-          <HStack class="header-right" spacing="$2">
+          <HStack class="header-right" spacing="$2" flexShrink="0">
             <Show when={objStore.state === State.Folder}>
               <Show when={getSetting("search_index") !== "none"}>
                 <HStack
