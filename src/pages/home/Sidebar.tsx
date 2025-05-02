@@ -46,7 +46,7 @@ function SidebarPanel() {
       overflow="auto"
       spacing="$2"
       bgColor="$background"
-      _dark={{ bgColor: "$neutral2" }}
+      _dark={{ backgroundColor: "$neutral2" }}
     >
       <FolderTree
         autoOpen

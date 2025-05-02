@@ -3,6 +3,8 @@ import { Obj } from "./Obj"
 import { Readme } from "./Readme"
 import { Container } from "./Container"
 import { Sidebar } from "./Sidebar"
+import { Show } from "solid-js"
+import { isMobile } from "~/utils/compatibility"
 
 export const Body = () => {
   return (
@@ -17,7 +19,9 @@ export const Body = () => {
         spacing="$0"
         alignItems="flex-start"
       >
-        <Sidebar />
+        <Show when={!isMobile}>
+          <Sidebar />
+        </Show>
         <VStack class="content" w="$full" h="100%" px="$2" gap="$4">
           <Readme files={["header.md", "top.md"]} fromMeta="header" />
           <Obj />
