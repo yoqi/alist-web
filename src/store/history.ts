@@ -14,7 +14,8 @@ const waitForNextFrame = () => {
 }
 
 export const getHistoryKey = (path: string, page?: number) => {
-  return page && page > 1 ? `${path}?page=${page}` : path
+  const pathname = path.split("?")[0]
+  return page && page > 1 ? `${pathname}?page=${page}` : pathname
 }
 
 export const recordHistory = (path: string, page?: number) => {
@@ -34,6 +35,7 @@ export const recordHistory = (path: string, page?: number) => {
     scroll: window.scrollY,
   }
   HistoryMap.set(key, history)
+  console.log(`record history: [${key}]`)
 }
 
 export const recoverHistory = async (path: string, page?: number) => {
@@ -43,9 +45,9 @@ export const recoverHistory = async (path: string, page?: number) => {
   setGlobalPage(history.page)
   ObjStore.setState(State.Initial)
   await waitForNextFrame()
-  ObjStore.set(history.obj)
+  ObjStore.set(JSON.parse(JSON.stringify(history.obj)))
   await waitForNextFrame()
-  window.scroll({ top: history.scroll, behavior: "smooth" })
+  window.scroll({ top: history.scroll })
 }
 
 export const hasHistory = (path: string, page?: number) => {
@@ -55,5 +57,21 @@ export const hasHistory = (path: string, page?: number) => {
 
 export const clearHistory = (path: string, page?: number) => {
   const key = getHistoryKey(path, page)
-  HistoryMap.delete(key)
+  if (hasHistory(path, page)) {
+    HistoryMap.delete(key)
+    console.log(`clear history: [${key}]`)
+  }
 }
+
+document.addEventListener(
+  "click",
+  (e) => {
+    let target = e.target as HTMLElement
+    let link = target.closest("a")
+    let path = link?.getAttribute("href")
+    if (path) {
+      clearHistory(decodeURIComponent(path))
+    }
+  },
+  true,
+)
