@@ -28,9 +28,13 @@ export interface Col {
 }
 
 export const cols: Col[] = [
-  { name: "name", textAlign: "left", w: { "@initial": "76%", "@md": "50%" } },
-  { name: "size", textAlign: "right", w: { "@initial": "24%", "@md": "17%" } },
-  { name: "modified", textAlign: "right", w: { "@initial": 0, "@md": "33%" } },
+  { name: "name", textAlign: "left", w: { "@initial": "65%", "@md": "50%" } },
+  { name: "size", textAlign: "right", w: { "@initial": "15%", "@md": "15%" } },
+  {
+    name: "modified",
+    textAlign: "right",
+    w: { "@initial": "20%", "@md": "35%" },
+  },
 ]
 
 export const ListItem = (props: { obj: StoreObj; index: number }) => {
@@ -59,10 +63,10 @@ export const ListItem = (props: { obj: StoreObj; index: number }) => {
         data-index={props.index}
         w="$full"
         p="$2"
-        rounded="$lg"
-        transition="all 0.3s"
+        rounded="$sm"
+        borderBottom="1px solid $neutral4"
+        transition="all 0.2s"
         _hover={{
-          transform: "scale(1.01)",
           bgColor: hoverColor(),
         }}
         as={LinkWithPush}
@@ -154,7 +158,7 @@ export const ListItem = (props: { obj: StoreObj; index: number }) => {
         </Text>
         <Text
           class="modified"
-          display={{ "@initial": "none", "@md": "inline" }}
+          display={{ "@initial": "inline", "@md": "inline" }}
           w={cols[2].w}
           textAlign={cols[2].textAlign as any}
         >

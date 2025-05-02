@@ -36,16 +36,11 @@ export const Header = () => {
       bgColor="$background"
       class="header"
       w="$full"
-      // shadow="$md"
+      borderBottom="1px solid $neutral6"
     >
       <Container>
-        <HStack
-          px="calc(2% + 0.5rem)"
-          py="$2"
-          w="$full"
-          justifyContent="space-between"
-        >
-          <HStack class="header-left" h="44px">
+        <HStack px="$2" py="$1" w="$full" justifyContent="space-between">
+          <HStack class="header-left" h="40px" spacing="$4">
             <Image
               src={logo()!}
               h="$full"

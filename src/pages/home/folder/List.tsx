@@ -46,7 +46,7 @@ export const ListTitle = (props: {
     }
   }
   return (
-    <HStack class="title" w="$full" p="$2">
+    <HStack class="title" w="$full" p="$2" borderBottom="1px solid $neutral6">
       <HStack w={cols[0].w} spacing="$1">
         <Show when={!props.disableCheckbox && checkboxOpen()}>
           <ItemCheckbox
@@ -65,7 +65,7 @@ export const ListTitle = (props: {
       <Text
         w={cols[2].w}
         {...itemProps(cols[2])}
-        display={{ "@initial": "none", "@md": "inline" }}
+        display={{ "@initial": "inline", "@md": "inline" }}
       >
         {t(`home.obj.${cols[2].name}`)}
       </Text>
