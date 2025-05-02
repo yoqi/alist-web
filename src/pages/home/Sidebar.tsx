@@ -1,5 +1,4 @@
-import { Box } from "@hope-ui/solid"
-import { Motion } from "@motionone/solid"
+import { Box, VStack } from "@hope-ui/solid"
 import { useLocation } from "@solidjs/router"
 import {
   Show,
@@ -15,47 +14,17 @@ import { useRouter } from "~/hooks"
 import { local, objStore } from "~/store"
 import { objBoxRef } from "./Obj"
 
-function SidebarPannel() {
+function SidebarPanel() {
   const { to } = useRouter()
   const location = useLocation()
 
   const [folderTreeHandler, setFolderTreeHandler] =
     createSignal<FolderTreeHandler>()
-  const [sideBarRef, setSideBarRef] = createSignal<HTMLDivElement>()
-  const [offsetX, setOffsetX] = createSignal<number | string>(-999)
-
-  const showFullSidebar = () => setOffsetX(0)
-  const resetSidebar = () => {
-    const $objBox = objBoxRef()
-    const $sideBar = sideBarRef()
-    if (!$objBox || !$sideBar) return
-    const gap = $objBox.offsetLeft > 50 ? 16 : 0
-    if ($sideBar.clientWidth < $objBox.offsetLeft - gap) {
-      setOffsetX(0)
-    } else {
-      setOffsetX(`calc(-100% + ${$objBox.offsetLeft}px - ${gap}px)`)
-    }
-  }
-
-  let rafId: number
 
   onMount(() => {
     const handler = folderTreeHandler()
     handler?.setPath(location.pathname)
-    rafId = requestAnimationFrame(resetSidebar)
-    window.addEventListener("resize", resetSidebar)
-    onCleanup(() => window.removeEventListener("resize", resetSidebar))
   })
-
-  createEffect(
-    on(
-      () => objStore.state,
-      () => {
-        cancelAnimationFrame(rafId)
-        rafId = requestAnimationFrame(resetSidebar)
-      },
-    ),
-  )
 
   createEffect(
     on(
@@ -68,20 +37,16 @@ function SidebarPannel() {
   )
 
   return (
-    <Box
-      left={3} // width of outline shadow
-      top={3}
-      h="calc(100vh - 6px)"
-      minW={180}
+    <VStack
+      minW="250px"
+      maxW="250px"
+      h="100vh"
       p="$2"
+      borderRight="1px solid $neutral6"
       overflow="auto"
-      shadow="$lg"
-      rounded="$lg"
-      bgColor="white"
-      _dark={{ bgColor: "$neutral3" }}
-      onMouseEnter={showFullSidebar}
-      onMouseLeave={resetSidebar}
-      ref={(el: HTMLDivElement) => setSideBarRef(el)}
+      spacing="$2"
+      bgColor="$background"
+      _dark={{ backgroundColor: "$neutral2" }}
     >
       <FolderTree
         autoOpen
@@ -90,16 +55,10 @@ function SidebarPannel() {
         onChange={(path) => to(path)}
         handle={(handler) => setFolderTreeHandler(handler)}
       />
-    </Box>
+    </VStack>
   )
 }
 
 export function Sidebar() {
-  const visible = createMemo(() => local["show_sidebar"] !== "none")
-
-  return (
-    <Show when={visible()}>
-      <SidebarPannel />
-    </Show>
-  )
+  return <SidebarPanel />
 }
