@@ -57,10 +57,11 @@ export const ListItem = (props: { obj: StoreObj; index: number }) => {
         class="list-item viselect-item"
         data-index={props.index}
         w="$full"
-        p="$2"
+        p="$1"
         rounded="$sm"
         borderBottom="1px solid $neutral4"
         transition="all 0.2s"
+        lineHeight="1.2"
         _hover={{
           bgColor: hoverColor(),
         }}
@@ -115,7 +116,7 @@ export const ListItem = (props: { obj: StoreObj; index: number }) => {
           </Show>
           <Icon
             class="icon"
-            boxSize="$6"
+            boxSize="$5"
             color={getMainColor()}
             as={getIconByObj(props.obj)}
             mr="$1"
@@ -143,13 +144,19 @@ export const ListItem = (props: { obj: StoreObj; index: number }) => {
                 // webkit
                 display: "none",
               },
+              lineHeight: "1.2",
             }}
             title={props.obj.name}
           >
             {props.obj.name}
           </Text>
         </HStack>
-        <Text class="size" w={cols[1].w} textAlign={cols[1].textAlign as any}>
+        <Text
+          class="size"
+          w={cols[1].w}
+          textAlign={cols[1].textAlign as any}
+          lineHeight="1.2"
+        >
           {getFileSize(props.obj.size)}
         </Text>
         <Text
@@ -157,6 +164,7 @@ export const ListItem = (props: { obj: StoreObj; index: number }) => {
           display={{ "@initial": "inline", "@md": "inline" }}
           w={cols[2].w}
           textAlign={cols[2].textAlign as any}
+          lineHeight="1.2"
         >
           {formatDate(props.obj.modified)}
         </Text>

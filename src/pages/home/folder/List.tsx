@@ -46,7 +46,13 @@ export const ListTitle = (props: {
     }
   }
   return (
-    <HStack class="title" w="$full" p="$2" borderBottom="1px solid $neutral6">
+    <HStack
+      class="title"
+      w="$full"
+      p="$1"
+      lineHeight="1.2"
+      borderBottom="1px solid $neutral6"
+    >
       <HStack w={cols[0].w} spacing="$1">
         <Show when={!props.disableCheckbox && checkboxOpen()}>
           <ItemCheckbox
