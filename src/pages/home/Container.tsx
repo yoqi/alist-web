@@ -7,7 +7,9 @@ export const Container = (props: { children: JSXElement }) => {
   return (
     <Switch fallback={<Box w="min(99%, 980px)">{props.children}</Box>}>
       <Match when={container === "hope_container"}>
-        <HopeContainer>{props.children}</HopeContainer>
+        <HopeContainer w="$full" maxWidth="100%">
+          {props.children}
+        </HopeContainer>
       </Match>
     </Switch>
   )
