@@ -22,6 +22,8 @@
     "root_folder_id": "Root folder id"
   },
   "115 Open": {
+    "limit_rate": "Limit rate",
+    "limit_rate-tips": "limit all api request rate ([limit]r/1s)",
     "order_by": "Order by",
     "order_bys": {
       "file_name": "File name",
@@ -317,6 +319,30 @@
     "custom_ua": "Custom ua",
     "enable_thumb_and_folder_size": "Enable thumb and folder size",
     "password": "Password",
+    "root_folder_path": "Root folder path",
+    "username": "Username"
+  },
+  "Cloudreve V4": {
+    "access_token": "Access token",
+    "address": "Address",
+    "custom_ua": "Custom ua",
+    "enable_folder_size": "Enable folder size",
+    "enable_thumb": "Enable thumb",
+    "enable_version_upload": "Enable version upload",
+    "order_by": "Order by",
+    "order_bys": {
+      "created_at": "Created at",
+      "name": "Name",
+      "size": "Size",
+      "updated_at": "Updated at"
+    },
+    "order_direction": "Order direction",
+    "order_directions": {
+      "asc": "Asc",
+      "desc": "Desc"
+    },
+    "password": "Password",
+    "refresh_token": "Refresh token",
     "root_folder_path": "Root folder path",
     "username": "Username"
   },
@@ -1120,6 +1146,7 @@
     "BaiduShare": {},
     "ChaoXingGroupDrive": {},
     "Cloudreve": {},
+    "Cloudreve V4": {},
     "Crypt": {},
     "Doge": {},
     "Doubao": {},
@@ -1201,6 +1228,7 @@
     "BaiduShare": "BaiduShare",
     "ChaoXingGroupDrive": "ChaoXingGroupDrive",
     "Cloudreve": "Cloudreve",
+    "Cloudreve V4": "Cloudreve V4",
     "Crypt": "Crypt",
     "Doge": "Doge",
     "Doubao": "Doubao",
