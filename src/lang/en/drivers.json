@@ -22,8 +22,9 @@
     "root_folder_id": "Root folder id"
   },
   "115 Open": {
-    "limit_rate": "Limit rate",
-    "limit_rate-tips": "limit all api request rate ([limit]r/1s)",
+    "access_token": "Access token",
+    "limit_rate,string": "Limit rate,string",
+    "limit_rate,string-tips": "limit all api request rate ([limit]r/1s)",
     "order_by": "Order by",
     "order_bys": {
       "file_name": "File name",
@@ -64,6 +65,15 @@
     "root_folder_id": "Root folder id",
     "share_code": "Share code",
     "share_code-tips": "share code of 115 share link"
+  },
+  "123 Open": {
+    "AccessToken": "AccessToken",
+    "ClientID": "ClientID",
+    "ClientSecret": "ClientSecret",
+    "RefreshToken": "RefreshToken",
+    "UploadThread": "UploadThread",
+    "UploadThread-tips": "the threads of upload",
+    "root_folder_id": "Root folder id"
   },
   "123Pan": {
     "password": "Password",
@@ -143,27 +153,36 @@
     "username": "Username",
     "validate_code": "Validate code"
   },
-  "AList V2": {
+  "189CloudTV": {
     "access_token": "Access token",
-    "password": "Password",
-    "root_folder_path": "Root folder path",
-    "url": "Url"
-  },
-  "AList V3": {
-    "forward_archive_requests": "Forward archive requests",
-    "meta_password": "Meta password",
-    "pass_ua_to_upsteam": "Pass ua to upsteam",
-    "password": "Password",
-    "root_folder_path": "Root folder path",
-    "token": "Token",
-    "url": "Url",
-    "username": "Username"
+    "family_id": "Family id",
+    "order_by": "Order by",
+    "order_bys": {
+      "filename": "Filename",
+      "filesize": "Filesize",
+      "lastOpTime": "LastOpTime"
+    },
+    "order_direction": "Order direction",
+    "order_directions": {
+      "asc": "Asc",
+      "desc": "Desc"
+    },
+    "rapid_upload": "Rapid upload",
+    "root_folder_id": "Root folder id",
+    "type": "Type",
+    "types": {
+      "family": "Family",
+      "personal": "Personal"
+    },
+    "upload_thread": "Upload thread",
+    "upload_thread-tips": "1\u003c=thread\u003c=32"
   },
   "Alias": {
     "download_concurrency": "Download concurrency",
     "download_concurrency-tips": "Need to enable proxy",
     "download_part_size": "Download part size",
     "download_part_size-tips": "Need to enable proxy. Unit: KB",
+    "parallel_write": "Parallel write",
     "paths": "Paths",
     "protect_same_name": "Protect same name",
     "protect_same_name-tips": "Protects same-name files from Delete or Rename",
@@ -188,6 +207,7 @@
     "root_folder_id": "Root folder id"
   },
   "AliyundriveOpen": {
+    "api_url_address": "Api url address",
     "client_id": "Client id",
     "client_id-tips": "Keep it empty if you don't have one",
     "client_secret": "Client secret",
@@ -205,7 +225,6 @@
       "jpeg": "Jpeg",
       "mov": "Mov"
     },
-    "oauth_token_url": "Oauth token url",
     "order_by": "Order by",
     "order_bys": {
       "created_at": "Created at",
@@ -226,7 +245,8 @@
       "delete": "Delete",
       "trash": "Trash"
     },
-    "root_folder_id": "Root folder id"
+    "root_folder_id": "Root folder id",
+    "use_online_api": "Use online api"
   },
   "AliyundriveShare": {
     "order_by": "Order by",
@@ -257,6 +277,7 @@
     "sign_url_expire-tips": "The expiration time for SAS URLs, in hours."
   },
   "BaiduNetdisk": {
+    "api_url_address": "Api url address",
     "client_id": "Client id",
     "client_secret": "Client secret",
     "custom_crack_ua": "Custom crack ua",
@@ -285,7 +306,8 @@
     "root_folder_path": "Root folder path",
     "upload_api": "Upload api",
     "upload_thread": "Upload thread",
-    "upload_thread-tips": "1\u003c=thread\u003c=32"
+    "upload_thread-tips": "1\u003c=thread\u003c=32",
+    "use_online_api": "Use online api"
   },
   "BaiduPhoto": {
     "album_id": "Album id",
@@ -299,12 +321,6 @@
     },
     "upload_thread": "Upload thread",
     "upload_thread-tips": "1\u003c=thread\u003c=32"
-  },
-  "BaiduShare": {
-    "BDUSS": "BDUSS",
-    "pwd": "Pwd",
-    "root_folder_path": "Root folder path",
-    "surl": "Surl"
   },
   "ChaoXingGroupDrive": {
     "bbsid": "Bbsid",
@@ -329,6 +345,7 @@
     "enable_folder_size": "Enable folder size",
     "enable_thumb": "Enable thumb",
     "enable_version_upload": "Enable version upload",
+    "hide_uploading": "Hide uploading",
     "order_by": "Order by",
     "order_bys": {
       "created_at": "Created at",
@@ -417,13 +434,14 @@
     "share_ids": "Share ids"
   },
   "Dropbox": {
+    "api_url_address": "Api url address",
     "client_id": "Client id",
     "client_id-tips": "Keep it empty if you don't have one",
     "client_secret": "Client secret",
     "client_secret-tips": "Keep it empty if you don't have one",
-    "oauth_token_url": "Oauth token url",
     "refresh_token": "Refresh token",
-    "root_folder_path": "Root folder path"
+    "root_folder_path": "Root folder path",
+    "use_online_api": "Use online api"
   },
   "FTP": {
     "address": "Address",
@@ -494,6 +512,7 @@
     "token-tips": "GitHub token, if you want to access private repositories or increase the rate limit"
   },
   "GoogleDrive": {
+    "api_url_address": "Api url address",
     "chunk_size": "Chunk size",
     "chunk_size-tips": "chunk size while uploading (unit: MB)",
     "client_id": "Client id",
@@ -506,7 +525,8 @@
       "desc": "Desc"
     },
     "refresh_token": "Refresh token",
-    "root_folder_id": "Root folder id"
+    "root_folder_id": "Root folder id",
+    "use_online_api": "Use online api"
   },
   "GooglePhoto": {
     "client_id": "Client id",
@@ -568,17 +588,6 @@
       "url": "Url"
     },
     "user_agent": "User agent"
-  },
-  "Lark": {
-    "app_id": "App id",
-    "app_id-tips": "app id",
-    "app_secret": "App secret",
-    "app_secret-tips": "app secret",
-    "external_mode": "External mode",
-    "external_mode-tips": "external mode",
-    "root_folder_path": "Root folder path",
-    "tenant_url_prefix": "Tenant url prefix",
-    "tenant_url_prefix-tips": "tenant url prefix"
   },
   "LenovoNasShare": {
     "host": "Host",
@@ -657,6 +666,7 @@
     "song_limit-tips": "only get 200 songs by default"
   },
   "Onedrive": {
+    "api_url_address": "Api url address",
     "chunk_size": "Chunk size",
     "client_id": "Client id",
     "client_secret": "Client secret",
@@ -673,7 +683,8 @@
       "us": "Us"
     },
     "root_folder_path": "Root folder path",
-    "site_id": "Site id"
+    "site_id": "Site id",
+    "use_online_api": "Use online api"
   },
   "Onedrive Sharelink": {
     "password": "Password",
@@ -696,6 +707,16 @@
     },
     "root_folder_path": "Root folder path",
     "tenant_id": "Tenant id"
+  },
+  "OpenList": {
+    "forward_archive_requests": "Forward archive requests",
+    "meta_password": "Meta password",
+    "pass_ua_to_upsteam": "Pass ua to upsteam",
+    "password": "Password",
+    "root_folder_path": "Root folder path",
+    "token": "Token",
+    "url": "Url",
+    "username": "Username"
   },
   "PikPak": {
     "captcha_token": "Captcha token",
@@ -727,6 +748,7 @@
   },
   "Quark": {
     "cookie": "Cookie",
+    "only_list_video_file": "Only list video file",
     "order_by": "Order by",
     "order_bys": {
       "file_name": "File name",
@@ -739,22 +761,39 @@
       "asc": "Asc",
       "desc": "Desc"
     },
-    "root_folder_id": "Root folder id"
+    "root_folder_id": "Root folder id",
+    "use_transcoding_address": "Use transcoding address",
+    "use_transcoding_address-tips": "You can watch the transcoded video and support 302 redirection"
+  },
+  "QuarkOpen": {
+    "access_token": "Access token",
+    "api_url_address": "Api url address",
+    "app_id": "App id",
+    "app_id-tips": "Keep it empty if you don't have one",
+    "order_by": "Order by",
+    "order_bys": {
+      "created_at": "Created at",
+      "file_name": "File name",
+      "file_type": "File type",
+      "none": "None",
+      "updated_at": "Updated at"
+    },
+    "order_direction": "Order direction",
+    "order_directions": {
+      "asc": "Asc",
+      "desc": "Desc"
+    },
+    "refresh_token": "Refresh token",
+    "root_folder_id": "Root folder id",
+    "sign_key": "Sign key",
+    "sign_key-tips": "Keep it empty if you don't have one",
+    "use_online_api": "Use online api"
   },
   "QuarkTV": {
     "device_id": "Device id",
     "query_token": "Query token",
     "query_token-tips": "don't edit'",
     "refresh_token": "Refresh token",
-    "root_folder_id": "Root folder id"
-  },
-  "Quqi": {
-    "cdn": "Cdn",
-    "cdn-tips": "If you enable this option, the download speed can be increased, but there will be some performance loss",
-    "cookie": "Cookie",
-    "cookie-tips": "Cookie can be used on multiple clients at the same time",
-    "password": "Password",
-    "phone": "Phone",
     "root_folder_id": "Root folder id"
   },
   "S3": {
@@ -804,6 +843,15 @@
     "root_folder_path": "Root folder path",
     "token": "Token",
     "username": "Username"
+  },
+  "Strm": {
+    "encodePath": "EncodePath",
+    "encodePath-tips": "encode the path in the strm file",
+    "filterFileTypes": "FilterFileTypes",
+    "filterFileTypes-tips": "Supports suffix name of strm file",
+    "paths": "Paths",
+    "siteUrl": "SiteUrl",
+    "siteUrl-tips": "The prefix URL of the strm file"
   },
   "Teambition": {
     "cookie": "Cookie",
@@ -859,6 +907,9 @@
   },
   "ThunderBrowser": {
     "captcha_token": "Captcha token",
+    "credit_key": "Credit key",
+    "credit_key-tips": "credit key,used for login",
+    "device_id": "Device id",
     "password": "Password",
     "remove_way": "Remove way",
     "remove_ways": {
@@ -867,6 +918,8 @@
     },
     "root_folder_id": "Root folder id",
     "safe_password": "Safe password",
+    "use_fluent_play": "Use fluent play",
+    "use_fluent_play-tips": "use fluent play for offline download,only magnet links supported",
     "use_video_url": "Use video url",
     "username": "Username"
   },
@@ -879,6 +932,8 @@
     "client_id": "Client id",
     "client_secret": "Client secret",
     "client_version": "Client version",
+    "credit_key": "Credit key",
+    "credit_key-tips": "credit key,used for login",
     "device_id": "Device id",
     "download_user_agent": "Download user agent",
     "login_type": "Login type",
@@ -906,6 +961,8 @@
     },
     "timestamp": "Timestamp",
     "timestamp-tips": "sign type is captcha_sign,this is required",
+    "use_fluent_play": "Use fluent play",
+    "use_fluent_play-tips": "use fluent play for offline download,only magnet links supported",
     "use_video_url": "Use video url",
     "user_agent": "User agent",
     "username": "Username",
@@ -988,13 +1045,9 @@
     "username": "Username",
     "username-tips": "login type is user,this is required"
   },
-  "Trainbit": {
-    "AUSHELLPORTAL": "AUSHELLPORTAL",
-    "apikey": "Apikey",
-    "root_folder_id": "Root folder id"
-  },
   "UC": {
     "cookie": "Cookie",
+    "only_list_video_file": "Only list video file",
     "order_by": "Order by",
     "order_bys": {
       "file_name": "File name",
@@ -1007,7 +1060,9 @@
       "asc": "Asc",
       "desc": "Desc"
     },
-    "root_folder_id": "Root folder id"
+    "root_folder_id": "Root folder id",
+    "use_transcoding_address": "Use transcoding address",
+    "use_transcoding_address-tips": "You can watch the transcoded video and support 302 redirection"
   },
   "UCTV": {
     "device_id": "Device id",
@@ -1031,23 +1086,6 @@
     "url_structure": "Url structure",
     "url_structure-tips": "structure:FolderName:\n  [FileName:][FileSize:][Modified:]Url",
     "writable": "Writable"
-  },
-  "VTencent": {
-    "cookie": "Cookie",
-    "order_by": "Order by",
-    "order_bys": {
-      "CreatTime": "CreatTime",
-      "Name": "Name",
-      "Size": "Size",
-      "UpdateTime": "UpdateTime"
-    },
-    "order_direction": "Order direction",
-    "order_directions": {
-      "Asc": "Asc",
-      "Desc": "Desc"
-    },
-    "root_folder_id": "Root folder id",
-    "tf_uid": "Tf uid"
   },
   "Virtual": {
     "max_file_size": "Max file size",
@@ -1102,6 +1140,7 @@
     }
   },
   "YandexDisk": {
+    "api_url_address": "Api url address",
     "client_id": "Client id",
     "client_secret": "Client secret",
     "order_by": "Order by",
@@ -1118,12 +1157,14 @@
       "desc": "Desc"
     },
     "refresh_token": "Refresh token",
-    "root_folder_path": "Root folder path"
+    "root_folder_path": "Root folder path",
+    "use_online_api": "Use online api"
   },
   "config": {
     "115 Cloud": {},
     "115 Open": {},
     "115 Share": {},
+    "123 Open": {},
     "123Pan": {},
     "123PanLink": {},
     "123PanShare": {},
@@ -1132,8 +1173,7 @@
       "alert": "You can try to use 189PC driver if this driver does not work."
     },
     "189CloudPC": {},
-    "AList V2": {},
-    "AList V3": {},
+    "189CloudTV": {},
     "Alias": {},
     "Aliyundrive": {
       "alert": "There may be an infinite loop bug in this driver.\nDeprecated, no longer maintained and will be removed in a future version.\nWe recommend using the official driver AliyundriveOpen."
@@ -1143,7 +1183,6 @@
     "Azure Blob Storage": {},
     "BaiduNetdisk": {},
     "BaiduPhoto": {},
-    "BaiduShare": {},
     "ChaoXingGroupDrive": {},
     "Cloudreve": {},
     "Cloudreve V4": {},
@@ -1164,7 +1203,6 @@
     "IPFS API": {},
     "KodBox": {},
     "Lanzou": {},
-    "Lark": {},
     "LenovoNasShare": {},
     "Local": {},
     "MediaTrack": {},
@@ -1177,15 +1215,17 @@
     "Onedrive": {},
     "Onedrive Sharelink": {},
     "OnedriveAPP": {},
+    "OpenList": {},
     "PikPak": {},
     "PikPakShare": {},
     "Quark": {},
+    "QuarkOpen": {},
     "QuarkTV": {},
-    "Quqi": {},
     "S3": {},
     "SFTP": {},
     "SMB": {},
     "Seafile": {},
+    "Strm": {},
     "Teambition": {},
     "Terabox": {},
     "Thunder": {},
@@ -1194,12 +1234,10 @@
     "ThunderExpert": {},
     "ThunderX": {},
     "ThunderXExpert": {},
-    "Trainbit": {},
     "UC": {},
     "UCTV": {},
     "USS": {},
     "UrlTree": {},
-    "VTencent": {},
     "Virtual": {},
     "WebDav": {},
     "WeiYun": {},
@@ -1210,14 +1248,14 @@
     "115 Cloud": "115 Cloud",
     "115 Open": "115 Open",
     "115 Share": "115 Share",
+    "123 Open": "123 Open",
     "123Pan": "123Pan",
     "123PanLink": "123PanLink",
     "123PanShare": "123PanShare",
     "139Yun": "139Yun",
     "189Cloud": "189Cloud",
     "189CloudPC": "189CloudPC",
-    "AList V2": "AList V2",
-    "AList V3": "AList V3",
+    "189CloudTV": "189CloudTV",
     "Alias": "Alias",
     "Aliyundrive": "Aliyundrive",
     "AliyundriveOpen": "AliyundriveOpen",
@@ -1225,7 +1263,6 @@
     "Azure Blob Storage": "Azure Blob Storage",
     "BaiduNetdisk": "BaiduNetdisk",
     "BaiduPhoto": "BaiduPhoto",
-    "BaiduShare": "BaiduShare",
     "ChaoXingGroupDrive": "ChaoXingGroupDrive",
     "Cloudreve": "Cloudreve",
     "Cloudreve V4": "Cloudreve V4",
@@ -1246,7 +1283,6 @@
     "IPFS API": "IPFS API",
     "KodBox": "KodBox",
     "Lanzou": "Lanzou",
-    "Lark": "Lark",
     "LenovoNasShare": "LenovoNasShare",
     "Local": "Local",
     "MediaTrack": "MediaTrack",
@@ -1257,15 +1293,17 @@
     "Onedrive": "Onedrive",
     "Onedrive Sharelink": "Onedrive Sharelink",
     "OnedriveAPP": "OnedriveAPP",
+    "OpenList": "OpenList",
     "PikPak": "PikPak",
     "PikPakShare": "PikPakShare",
     "Quark": "Quark",
+    "QuarkOpen": "QuarkOpen",
     "QuarkTV": "QuarkTV",
-    "Quqi": "Quqi",
     "S3": "S3",
     "SFTP": "SFTP",
     "SMB": "SMB",
     "Seafile": "Seafile",
+    "Strm": "Strm",
     "Teambition": "Teambition",
     "Terabox": "Terabox",
     "Thunder": "Thunder",
@@ -1274,12 +1312,10 @@
     "ThunderExpert": "ThunderExpert",
     "ThunderX": "ThunderX",
     "ThunderXExpert": "ThunderXExpert",
-    "Trainbit": "Trainbit",
     "UC": "UC",
     "UCTV": "UCTV",
     "USS": "USS",
     "UrlTree": "UrlTree",
-    "VTencent": "VTencent",
     "Virtual": "Virtual",
     "WebDav": "WebDav",
     "WeiYun": "WeiYun",

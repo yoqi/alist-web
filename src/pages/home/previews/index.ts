@@ -60,6 +60,12 @@ const previews: Preview[] = [
     prior: true,
   },
   {
+    name: "Flash",
+    exts: ["swf"],
+    component: lazy(() => import("./flash")),
+    prior: true,
+  },
+  {
     name: "Markdown with word wrap",
     type: ObjType.TEXT,
     component: lazy(() => import("./markdown_with_word_wrap")),
@@ -106,6 +112,12 @@ const previews: Preview[] = [
     name: "Plist",
     exts: ["plist"],
     component: lazy(() => import("./plist")),
+    prior: true,
+  },
+  {
+    name: "HEIC",
+    exts: ["heic", "heif", "avif", "vvc", "avc", "jpeg", "jpg"],
+    component: lazy(() => import("./heic")),
     prior: true,
   },
   {

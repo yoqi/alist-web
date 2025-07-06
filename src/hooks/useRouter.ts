@@ -15,7 +15,7 @@ const useRouter = () => {
   const location = useLocation()
   const params = useParams()
   const pathname = createMemo(() => {
-    return trimBase(location.pathname)
+    return trimBase(decodeURIComponent(location.pathname))
   })
   return {
     to: (
@@ -31,7 +31,7 @@ const useRouter = () => {
       navigate(path, options)
     },
     replace: (to: string) => {
-      const path = encodePath(pathJoin(pathDir(location.pathname), to), true)
+      const path = encodePath(pathJoin(pathDir(pathname()), to), true)
       clearHistory(decodeURIComponent(path))
       navigate(path)
     },
@@ -54,7 +54,7 @@ const useRouter = () => {
       const searchString = untrack(() =>
         _mergeSearchString(location.search, params),
       )
-      navigate(pathname() + searchString, {
+      navigate(joinBase(pathname() + searchString), {
         scroll: false,
         ...options,
         resolve: true,
