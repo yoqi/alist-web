@@ -48,9 +48,9 @@ export const Header = () => {
               w="auto"
               fallback={<CenterLoading />}
             />
-            <Show when={objStore.state === State.Folder}>
-              <Nav />
-            </Show>
+            {/* <Show when={objStore.state === State.Folder}> */}
+            <Nav />
+            {/* </Show> */}
           </HStack>
           <HStack class="header-right" spacing="$2" flexShrink="0">
             <Show when={objStore.state === State.Folder}>
