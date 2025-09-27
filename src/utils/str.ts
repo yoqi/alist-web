@@ -1,3 +1,5 @@
+import { isMobile } from "./compatibility"
+
 export const firstUpperCase = (str: string) => {
   if (!str || str.length === 0) {
     return ""
@@ -33,7 +35,15 @@ export function formatDate(dateStr: string) {
   const hour = date.getHours()
   const min = date.getMinutes()
   const sec = date.getSeconds()
-
+  if (isMobile) {
+    return (
+      year +
+      "-" +
+      full(mon) +
+      "-" +
+      full(day)
+    )
+  }
   return (
     year +
     "-" +
