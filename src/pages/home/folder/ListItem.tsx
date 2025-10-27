@@ -1,4 +1,11 @@
-import { HStack, Icon, Text } from "@hope-ui/solid"
+import {
+  HStack,
+  Icon,
+  Progress,
+  ProgressIndicator,
+  ProgressLabel,
+  Text,
+} from "@hope-ui/solid"
 import { Motion } from "solid-motionone"
 import { useContextMenu } from "solid-contextmenu"
 import { batch, Show } from "solid-js"
@@ -7,12 +14,22 @@ import { usePath, useRouter, useUtil } from "~/hooks"
 import {
   checkboxOpen,
   getMainColor,
+  getSettingBool,
   local,
   OrderBy,
   selectIndex,
 } from "~/store"
-import { ObjType, StoreObj } from "~/types"
-import { bus, formatDate, getFileSize, hoverColor } from "~/utils"
+import { MountDetails, ObjType, StoreObj } from "~/types"
+import {
+  bus,
+  formatDate,
+  getFileSize,
+  hoverColor,
+  showDiskUsage,
+  usedPercentage,
+  toReadableUsage,
+  nearlyFull,
+} from "~/utils"
 import { getIconByObj } from "~/utils/icon"
 import { ItemCheckbox, useSelectWithMouse } from "./helper"
 

@@ -1,3 +1,4 @@
+import Handlebars from "handlebars"
 import { isMobile } from "./compatibility"
 
 export const firstUpperCase = (str: string) => {
@@ -36,13 +37,7 @@ export function formatDate(dateStr: string) {
   const min = date.getMinutes()
   const sec = date.getSeconds()
   if (isMobile) {
-    return (
-      year +
-      "-" +
-      full(mon) +
-      "-" +
-      full(day)
-    )
+    return year + "-" + full(mon) + "-" + full(day)
   }
   return (
     year +
@@ -144,3 +139,43 @@ export const decodeText = (data: BufferSource, encoding?: string) => {
 //   const data = textEncoder.encode(text)
 //   return data
 // }
+
+Handlebars.registerHelper("dateLocaleString", (date: Date) => {
+  return new Date(date).toLocaleString()
+})
+
+Handlebars.registerHelper("add", (a: any, b: any) => {
+  return a + b
+})
+
+Handlebars.registerHelper("eq", (a: any, b: any) => {
+  return a === b
+})
+
+Handlebars.registerHelper("less", (a: any, b: any) => {
+  return a < b
+})
+
+Handlebars.registerHelper("and", (a: boolean, b: boolean) => {
+  return a && b
+})
+
+Handlebars.registerHelper("or", (a: boolean, b: boolean) => {
+  return a || b
+})
+
+Handlebars.registerHelper("not", (v: boolean) => {
+  return !v
+})
+
+Handlebars.registerHelper("filename", (path: string) => {
+  return path.indexOf("/") === -1 ? path : path.slice(path.lastIndexOf("/") + 1)
+})
+
+export const matchTemplate = (
+  templateStr: string,
+  data: { [key: string]: any },
+) => {
+  const template = Handlebars.compile(templateStr)
+  return template(data)
+}
