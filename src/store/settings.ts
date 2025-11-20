@@ -9,7 +9,12 @@ export const setSettings = (items: Record<string, string>) => {
   const version = settings["version"] || "Unknown"
 }
 
-export const getSetting = (key: string) => settings[key] ?? ""
+export const getSetting = (key: string) => {
+  if (key === "home_container") {
+    return settings[key] || "hope_container"
+  }
+  return settings[key] ?? ""
+}
 export const getSettingBool = (key: string) => {
   const value = getSetting(key)
   return value === "true" || value === "1"
