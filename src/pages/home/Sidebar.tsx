@@ -15,50 +15,58 @@ import { local, objStore } from "~/store"
 import { objBoxRef } from "./Obj"
 
 function SidebarPanel() {
-  const { to } = useRouter()
-  const location = useLocation()
+  function SidebarPanel() {
+    const { to } = useRouter()
+    const location = useLocation()
 
-  const [folderTreeHandler, setFolderTreeHandler] =
-    createSignal<FolderTreeHandler>()
+    const [folderTreeHandler, setFolderTreeHandler] =
+      createSignal<FolderTreeHandler>()
 
-  onMount(() => {
-    const handler = folderTreeHandler()
-    handler?.setPath(location.pathname)
-  })
+    onMount(() => {
+      const handler = folderTreeHandler()
+      handler?.setPath(location.pathname)
+    })
 
-  createEffect(
-    on(
-      () => location.pathname,
-      () => {
-        const handler = folderTreeHandler()
-        handler?.setPath(location.pathname)
-      },
-    ),
-  )
+    createEffect(
+      on(
+        () => location.pathname,
+        () => {
+          const handler = folderTreeHandler()
+          handler?.setPath(location.pathname)
+        },
+      ),
+    )
 
-  return (
-    <VStack
-      minW="250px"
-      maxW="250px"
-      h="100vh"
-      p="$2"
-      borderRight="1px solid $neutral6"
-      overflow="auto"
-      spacing="$2"
-      bgColor="$background"
-      _dark={{ backgroundColor: "$neutral2" }}
-    >
-      <FolderTree
-        autoOpen
-        showEmptyIcon
-        showHiddenFolder={false}
-        onChange={(path) => to(path)}
-        handle={(handler) => setFolderTreeHandler(handler)}
-      />
-    </VStack>
-  )
+    return (
+      <VStack
+        minW="250px"
+        maxW="250px"
+        h="100vh"
+        p="$2"
+        borderRight="1px solid $neutral6"
+        overflow="auto"
+        spacing="$2"
+        bgColor="$background"
+        _dark={{ backgroundColor: "$neutral2" }}
+      >
+        <FolderTree
+          autoOpen
+          showEmptyIcon
+          showHiddenFolder={false}
+          onChange={(path) => to(path)}
+          handle={(handler) => setFolderTreeHandler(handler)}
+        />
+      </VStack>
+    )
+  }
 }
 
 export function Sidebar() {
-  return <SidebarPanel />
+  const visible = createMemo(() => local["show_sidebar"] !== "none")
+
+  return (
+    <Show when={visible()}>
+      <SidebarPannel />
+    </Show>
+  )
 }
