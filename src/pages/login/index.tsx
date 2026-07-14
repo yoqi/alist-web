@@ -52,6 +52,7 @@ const Login = () => {
   const [useauthn, setuseauthn] = createSignal(false)
   const [remember, setRemember] = createStorageSignal("remember-pwd", "false")
   const [useLdap, setUseLdap] = createSignal(false)
+  const [agreeTerms, setAgreeTerms] = createSignal(false)
   const [loading, data] = useLoading(
     async (): Promise<Resp<{ token: string }>> => {
       if (useLdap()) {
@@ -186,6 +187,12 @@ const Login = () => {
   })
 
   const Login = async () => {
+    // 检查是否同意协议
+    if (!agreeTerms()) {
+      notify.error("请先阅读并同意《隐私协议》和《用户协议》")
+      return
+    }
+
     if (!useauthn()) {
       if (remember() === "true") {
         localStorage.setItem("username", username())
@@ -298,6 +305,28 @@ const Login = () => {
             <Text as="a" target="_blank" href={t("login.forget_url")}>
               {t("login.forget")}
             </Text>
+          </Flex>
+          <Flex px="$1" w="$full" fontSize="$xs" color="$neutral10">
+            <Checkbox
+              checked={agreeTerms()}
+              onChange={() => setAgreeTerms(!agreeTerms())}
+            >
+              <Text as="span">
+                我已阅读并同意
+                <Text
+                  as="a"
+                  target="_blank"
+                  href="https://wiki.yoqi.me/license.yoqi.me/docs/yoqi.me/%E5%B0%8F%E8%88%9F%E4%BA%91%E7%9B%98%E6%9C%8D%E5%8A%A1%E5%8D%8F%E8%AE%AE.html"
+                  color="$info10"
+                  textDecoration="underline"
+                  ml="$1"
+                  mr="$1"
+                >
+                  《隐私协议》和《用户协议》
+                </Text>
+              
+              </Text>
+            </Checkbox>
           </Flex>
         </Show>
         <HStack w="$full" spacing="$2">
