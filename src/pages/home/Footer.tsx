@@ -26,7 +26,7 @@ export const Footer = () => {
       </HStack>
       <HStack spacing="$1">
         <Text fontSize="$sm" color="$neutral10">
-          京xx
+          赣ICP备15012626号-1
         </Text>
       </HStack>
     </VStack>
