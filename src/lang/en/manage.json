@@ -27,7 +27,9 @@
     "ldap": "LDAP",
     "s3": "S3",
     "ftp": "FTP",
-    "traffic": "Traffic"
+    "traffic": "Traffic",
+    "plugins": "Plugins",
+    "seed": "Seed"
   },
   "title": "OpenList Management",
   "not_admin": "You are not an admin user, please login with an admin account.",

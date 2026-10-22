@@ -22,8 +22,12 @@ import { OcWorkflow2 } from "solid-icons/oc"
 import { IoCopy, IoMove, IoHome, IoMagnetOutline } from "solid-icons/io"
 import { Component, lazy } from "solid-js"
 import { Group, UserRole } from "~/types"
-import { FaSolidBook, FaSolidDatabase } from "solid-icons/fa"
-import { TbArchive } from "solid-icons/tb"
+import {
+  FaSolidBook,
+  FaSolidDatabase,
+  FaSolidPuzzlePiece,
+} from "solid-icons/fa"
+import { TbArchive, TbSeeding } from "solid-icons/tb"
 
 export type SideMenuItem = SideMenuItemProps & {
   component?: Component
@@ -70,6 +74,12 @@ export const side_menu_items: SideMenuItem[] = [
         component: () => <CommonSettings group={Group.GLOBAL} />,
       },
       {
+        title: "manage.sidemenu.seed",
+        icon: TbSeeding,
+        to: "/@manage/settings/seed",
+        component: lazy(() => import("./settings/Seed")),
+      },
+      {
         title: "manage.sidemenu.sso",
         icon: FiLogIn,
         to: "/@manage/settings/sso",
@@ -85,6 +95,7 @@ export const side_menu_items: SideMenuItem[] = [
         title: "manage.sidemenu.s3",
         icon: BsBucket,
         to: "/@manage/settings/s3",
+        backend: ["go"],
         component: lazy(() => import("./settings/S3")),
       },
       {
@@ -112,6 +123,7 @@ export const side_menu_items: SideMenuItem[] = [
     icon: OcWorkflow2,
     to: "/@manage/tasks",
     role: UserRole.GENERAL,
+    backend: ["go"],
     children: [
       {
         title: "manage.sidemenu.offline_download",
@@ -173,6 +185,13 @@ export const side_menu_items: SideMenuItem[] = [
     icon: CgDatabase,
     to: "/@manage/storages",
     component: lazy(() => import("./storages/Storages")),
+  },
+  {
+    title: "manage.sidemenu.plugins",
+    icon: FaSolidPuzzlePiece,
+    to: "/@manage/plugins",
+    backend: ["ts-worker"],
+    component: lazy(() => import("./plugins")),
   },
   {
     title: "manage.sidemenu.shares",
